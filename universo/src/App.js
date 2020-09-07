@@ -1,22 +1,11 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { MicroFrontend } from './MicroFrontend';
-import { AppHeader } from './AppHeader';
+import React from 'react';
 import { useMetadataMicroFrontends } from './useMetadataMicroFrontends';
+import './app.css';
 
 export const App = () => {
-  const { data } = useMetadataMicroFrontends();
+  const { html } = useMetadataMicroFrontends('http://localhost:3000/micro-frontends.json');
 
-  return <BrowserRouter>
-    <Fragment>
-      <AppHeader />
-      <Switch>
-        {
-          data.map(mf => {
-            return <Route key={mf.name} path={mf.path} render={({ history }) => <MicroFrontend history={history} host={mf.host} name={mf.name}></MicroFrontend>} />
-          })
-        }
-      </Switch>
-    </Fragment>
-  </BrowserRouter>;
+  return <div className="shell-container">
+    {html}
+  </div>;
 };
