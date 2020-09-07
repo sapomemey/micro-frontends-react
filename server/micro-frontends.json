@@ -1,0 +1,14 @@
+{
+  "metadaMicroFrontends": [
+    {
+      "host": "http://localhost:4202",
+      "name": "Tierra",
+      "path": "/tierra"
+    },
+    {
+      "host": "http://localhost:4201",
+      "name": "Marte",
+      "path": "/marte"
+    }
+  ]
+}
